@@ -1,0 +1,19 @@
+name: 'PlantUML Generator'
+description: 'Run PlantUML tool with the given set of arguments to generate various diagrams'
+author: '@ccojocar'
+
+inputs:
+  args:
+    description: 'Arguments for PlantUML tool'
+    required: true
+    default: '-h'
+
+runs:
+    using: 'docker'
+    image: 'docker://cloudbees/plantuml-github-action'
+    args:
+      - ${{ inputs.args }}
+
+branding:
+  icon: 'underline'
+  color: 'blue'
